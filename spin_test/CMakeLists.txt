@@ -156,6 +156,18 @@ target_link_libraries(${PROJECT_NAME}_c2_node
   ${catkin_LIBRARIES}
 )
 
+add_executable(${PROJECT_NAME}_c2_1_node src/spin_test_c2_1_node.cpp)
+add_dependencies(${PROJECT_NAME}_c2_1_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(${PROJECT_NAME}_c2_1_node
+  ${catkin_LIBRARIES}
+)
+
+add_executable(${PROJECT_NAME}_c2_2_node src/spin_test_c2_2_node.cpp)
+add_dependencies(${PROJECT_NAME}_c2_2_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(${PROJECT_NAME}_c2_2_node
+  ${catkin_LIBRARIES}
+)
+
 add_executable(${PROJECT_NAME}_c3_node src/spin_test_c3_node.cpp)
 add_dependencies(${PROJECT_NAME}_c3_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME}_c3_node
