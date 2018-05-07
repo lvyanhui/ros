@@ -26,20 +26,31 @@ public:
 
   void goalCB()
   {
+    ROS_INFO("goal callback");
     // reset helper variables
     data_count_ = 0;
     sum_ = 0;
     sum_sq_ = 0;
     // accept the new goal
     goal_ = as_.acceptNewGoal()->samples;
-    ros::Duration(1000.0).sleep();
+    ROS_INFO("accept goal, %d", goal_);
+    //ros::Duration(5.0).sleep();
+      
+    //result_.mean = 0;
+    //result_.std_dev = 0;
+    //as_.setSucceeded(result_);
   }
 
   void preemptCB()
   {
-    ROS_INFO("%s: Preempted", action_name_.c_str());
     // set the action state to preempted
-    as_.setPreempted();
+    if(as_.isNewGoalAvailable()) {
+      ROS_INFO("%s: Preempted", action_name_.c_str());
+      as_.setPreempted();
+    } else {
+      ROS_INFO("%s: Aborted", action_name_.c_str());
+      as_.setAborted();
+    }
   }
 
   void analysisCB(const std_msgs::Float32::ConstPtr& msg)

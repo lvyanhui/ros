@@ -49,6 +49,14 @@ add_executable(averaging_client_0 src/averaging_client_0.cpp)
 target_link_libraries( averaging_client_0 ${catkin_LIBRARIES})
 add_dependencies(  averaging_client_0  ${learning_actionlib_EXPORTED_TARGETS})
 
+add_executable(averaging_client_1 src/averaging_client_1.cpp)
+target_link_libraries( averaging_client_1 ${catkin_LIBRARIES})
+add_dependencies(  averaging_client_1  ${learning_actionlib_EXPORTED_TARGETS})
+
+add_executable(averaging_client_2 src/averaging_client_2.cpp)
+target_link_libraries( averaging_client_2 ${catkin_LIBRARIES})
+add_dependencies(  averaging_client_2  ${learning_actionlib_EXPORTED_TARGETS})
+
 add_executable(averaging_server src/averaging_server.cpp)
 target_link_libraries( averaging_server ${catkin_LIBRARIES})
 add_dependencies(  averaging_server  ${learning_actionlib_EXPORTED_TARGETS})
